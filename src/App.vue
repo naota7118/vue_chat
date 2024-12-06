@@ -7,6 +7,7 @@ const client = new OpenAI({
   dangerouslyAllowBrowser: true,
 })
 
+// フォームに入力したテキストの初期化(リアクティブシステムに含めるため)
 const message = ref('')
 
 // ChatGPTの返答の初期化
@@ -24,8 +25,7 @@ const send = async () => {
 
 <template>
   <div>
-    <p>ChatGPTに送る内容を入力してください。</p>
-    <textarea v-model="message" type="text" />
+    <textarea v-model="message" type="text" placeholder="ChatGPTに送る内容を入力してください。" />
     <button @click="send">送信</button>
   </div>
   <div v-if="chat_response">
