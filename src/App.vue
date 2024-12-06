@@ -24,17 +24,48 @@ const send = async () => {
 </script>
 
 <template>
-  <div>
-    <textarea v-model="message" type="text" placeholder="ChatGPTに送る内容を入力してください。" />
-    <button @click="send">送信</button>
-  </div>
-  <div v-if="chat_response">
-    <p>{{ chat_response }}</p>
+  <div class="container">
+    <div class="chat_area">
+      <div>
+        <textarea
+          v-model="message"
+          type="text"
+          placeholder="ChatGPTに送る内容を入力してください。"
+          class="message"
+        />
+        <button @click="send">送信</button>
+      </div>
+      <div v-if="chat_response" class="chat_response">
+        <p>{{ chat_response }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
 button {
   margin-left: 10px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat_area {
+  display: flex;
+  flex-direction: column;
+}
+.message,
+.chat_area {
+  width: 300px;
+  height: 100px;
+}
+
+.message {
+  background: #f5f5f5;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  resize: none;
 }
 </style>
